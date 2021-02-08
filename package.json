@@ -1,0 +1,15 @@
+{
+  "name": "threejs-getting-started",
+  "version": "1.0.0",
+  "description": "Three.js getting started",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Daniel Toplak",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  }
+}
