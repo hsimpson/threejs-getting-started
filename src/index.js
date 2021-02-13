@@ -1,4 +1,6 @@
 import { RenderEngine } from './renderengine.js';
 
-const renderEngine = new RenderEngine();
+// const shadow = false;
+const shadow = true;
+const renderEngine = new RenderEngine(shadow);
 renderEngine.start();
