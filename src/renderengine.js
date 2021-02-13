@@ -14,6 +14,8 @@ import { createLights } from './components/lights.js';
 
 import { GUI } from 'https://unpkg.com/three/examples/jsm/libs/dat.gui.module.js';
 
+import { createEnvironment } from './components/environment.js';
+
 export class RenderEngine {
   constructor(shadow) {
     // the main scene
@@ -53,6 +55,8 @@ export class RenderEngine {
     // adding objects to the update
     this.loop.updatables.push(cube, torusKnot);
     this.loop.updatables.push(controls);
+
+    createEnvironment(this.renderer, this.scene);
   }
 
   render() {
