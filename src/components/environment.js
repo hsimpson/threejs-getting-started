@@ -9,7 +9,7 @@ import { RGBELoader } from 'https://unpkg.com/three/examples/jsm/loaders/RGBELoa
 
 export function createEnvironment(renderer, scene) {
   const filename = 'old_depot_2k.hdr';
-  const path = 'assets/textures/';
+  const path = 'assets/environments/';
 
   // load the HDR equirectangular texture for reflections
   const pmremGenerator = new PMREMGenerator(renderer);
