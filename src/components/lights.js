@@ -3,6 +3,7 @@ import { AmbientLight, DirectionalLight } from 'https://unpkg.com/three/build/th
 const lightSettings = {
   ambientColor: '#dedea9',
   directionalColor: '#ffffff',
+  directionalIntensity: 2,
 };
 
 export function createLights(scene, shadow, gui) {
@@ -10,7 +11,7 @@ export function createLights(scene, shadow, gui) {
   const ambientLight = new AmbientLight(lightSettings.ambientColor);
 
   // directional Light
-  const directionalLight = new DirectionalLight(lightSettings.directionalColor, 2);
+  const directionalLight = new DirectionalLight(lightSettings.directionalColor, lightSettings.directionalIntensity);
   directionalLight.position.set(-10, 10, -2);
 
   if (shadow) {
@@ -26,11 +27,16 @@ export function createLights(scene, shadow, gui) {
   scene.add(ambientLight);
   scene.add(directionalLight);
 
-  gui.addColor(lightSettings, 'ambientColor').onChange((color) => {
+  const ambientGui = gui.addFolder('Ambient');
+  const directionalGui = gui.addFolder('Directional');
+
+  ambientGui.addColor(lightSettings, 'ambientColor').onChange((color) => {
     ambientLight.color.set(color);
   });
+  ambientGui.add(ambientLight, 'intensity', 0, 10);
 
-  gui.addColor(lightSettings, 'directionalColor').onChange((color) => {
+  directionalGui.addColor(lightSettings, 'directionalColor').onChange((color) => {
     directionalLight.color.set(color);
   });
+  directionalGui.add(directionalLight, 'intensity', 0, 10);
 }

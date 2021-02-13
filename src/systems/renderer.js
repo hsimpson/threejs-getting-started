@@ -1,4 +1,4 @@
-import { WebGLRenderer, PCFSoftShadowMap } from 'https://unpkg.com/three/build/three.module.js';
+import { WebGLRenderer, PCFSoftShadowMap, sRGBEncoding } from 'https://unpkg.com/three/build/three.module.js';
 
 export function createRenderer(shadow) {
   const renderer = new WebGLRenderer({ antialias: true });
@@ -6,6 +6,7 @@ export function createRenderer(shadow) {
   renderer.physicallyCorrectLights = true;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.outputEncoding = sRGBEncoding;
 
   if (shadow) {
     renderer.shadowMap.enabled = true;

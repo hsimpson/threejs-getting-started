@@ -7,7 +7,7 @@ import {
 } from 'https://unpkg.com/three/build/three.module.js';
 
 const materialSettings = {
-  color: '#03fc49',
+  color: '#007818',
   metalness: 0.0,
   roughness: 0.1,
 };
