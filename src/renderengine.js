@@ -16,14 +16,17 @@ import { GUI } from 'https://unpkg.com/three/examples/jsm/libs/dat.gui.module.js
 
 import { createEnvironment } from './components/environment.js';
 
+import { loadGLTF } from './systems/gltfloader.js';
+import { loadFBX } from './systems/fbxloader.js';
+
 export class RenderEngine {
   constructor(shadow) {
     // create gui
     this.gui = new GUI();
     let rendererGUI, cubeGUI, torusKnotGUI, lightsGUI;
     rendererGUI = this.gui.addFolder('Renderer');
-    cubeGUI = this.gui.addFolder('Cube');
-    torusKnotGUI = this.gui.addFolder('Torus knot');
+    // cubeGUI = this.gui.addFolder('Cube');
+    // torusKnotGUI = this.gui.addFolder('Torus knot');
     lightsGUI = this.gui.addFolder('Lights');
 
     // the main scene
@@ -39,11 +42,11 @@ export class RenderEngine {
     document.body.appendChild(this.renderer.domElement);
 
     // create a floor
-    createFloor(this.scene, shadow);
+    // createFloor(this.scene, shadow);
 
     // create a cube and a torus knot
-    const cube = createCube(this.scene, shadow, cubeGUI);
-    const torusKnot = createTorusKnot(this.scene, shadow, torusKnotGUI);
+    // const cube = createCube(this.scene, shadow, cubeGUI);
+    // const torusKnot = createTorusKnot(this.scene, shadow, torusKnotGUI);
 
     // create the lights
     createLights(this.scene, shadow, lightsGUI);
@@ -58,10 +61,13 @@ export class RenderEngine {
     const controls = createControls(this.camera, this.renderer.domElement);
 
     // adding objects to the update
-    this.loop.updatables.push(cube, torusKnot);
+    // this.loop.updatables.push(cube, torusKnot);
     this.loop.updatables.push(controls);
 
     createEnvironment(this.renderer, this.scene);
+
+    // load objects
+    this.loadObjects();
   }
 
   render() {
@@ -71,5 +77,10 @@ export class RenderEngine {
   start() {
     // this.render();
     this.loop.start();
+  }
+
+  loadObjects() {
+    loadGLTF('assets/models/WaterBottle/WaterBottle.gltf', this.scene, null, 15);
+    // loadGLTF('assets/models/Roboter/Roboter_3.gltf', this.scene, this.loop);
   }
 }
