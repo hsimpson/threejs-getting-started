@@ -40,11 +40,13 @@ export function createCube(scene, shadow, gui) {
   // add to the scene
   scene.add(mesh);
 
-  gui.addColor(materialSettings, 'color').onChange((color) => {
-    material.color.set(color);
-  });
-  gui.add(material, 'metalness', 0, 1);
-  gui.add(material, 'roughness', 0, 1);
+  if (gui) {
+    gui.addColor(materialSettings, 'color').onChange((color) => {
+      material.color.set(color);
+    });
+    gui.add(material, 'metalness', 0, 1);
+    gui.add(material, 'roughness', 0, 1);
+  }
 
   return mesh;
 }

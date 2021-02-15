@@ -27,16 +27,18 @@ export function createLights(scene, shadow, gui) {
   scene.add(ambientLight);
   scene.add(directionalLight);
 
-  const ambientGui = gui.addFolder('Ambient');
-  const directionalGui = gui.addFolder('Directional');
+  if (gui) {
+    const ambientGui = gui.addFolder('Ambient');
+    const directionalGui = gui.addFolder('Directional');
 
-  ambientGui.addColor(lightSettings, 'ambientColor').onChange((color) => {
-    ambientLight.color.set(color);
-  });
-  ambientGui.add(ambientLight, 'intensity', 0, 10);
+    ambientGui.addColor(lightSettings, 'ambientColor').onChange((color) => {
+      ambientLight.color.set(color);
+    });
+    ambientGui.add(ambientLight, 'intensity', 0, 10);
 
-  directionalGui.addColor(lightSettings, 'directionalColor').onChange((color) => {
-    directionalLight.color.set(color);
-  });
-  directionalGui.add(directionalLight, 'intensity', 0, 10);
+    directionalGui.addColor(lightSettings, 'directionalColor').onChange((color) => {
+      directionalLight.color.set(color);
+    });
+    directionalGui.add(directionalLight, 'intensity', 0, 10);
+  }
 }

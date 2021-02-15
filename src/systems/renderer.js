@@ -5,7 +5,7 @@ import {
   ReinhardToneMapping,
 } from 'https://unpkg.com/three/build/three.module.js';
 
-export function createRenderer(shadow) {
+export function createRenderer(shadow, gui) {
   const renderer = new WebGLRenderer({ antialias: true });
 
   renderer.physicallyCorrectLights = true;
@@ -18,6 +18,10 @@ export function createRenderer(shadow) {
   if (shadow) {
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = PCFSoftShadowMap; // default THREE.PCFShadowMap
+  }
+
+  if (gui) {
+    gui.add(renderer, 'toneMappingExposure', 0, 5, 0.1);
   }
 
   return renderer;

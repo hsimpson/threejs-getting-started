@@ -18,6 +18,14 @@ import { createEnvironment } from './components/environment.js';
 
 export class RenderEngine {
   constructor(shadow) {
+    // create gui
+    this.gui = new GUI();
+    let rendererGUI, cubeGUI, torusKnotGUI, lightsGUI;
+    rendererGUI = this.gui.addFolder('Renderer');
+    cubeGUI = this.gui.addFolder('Cube');
+    torusKnotGUI = this.gui.addFolder('Torus knot');
+    lightsGUI = this.gui.addFolder('Lights');
+
     // the main scene
     this.scene = createScene();
 
@@ -25,23 +33,20 @@ export class RenderEngine {
     this.camera = createCamera();
 
     // create the renderer
-    this.renderer = createRenderer(shadow);
+    this.renderer = createRenderer(shadow, rendererGUI);
 
     // add the renderer dom element (canvas) to the body
     document.body.appendChild(this.renderer.domElement);
-
-    // create gui
-    this.gui = new GUI();
 
     // create a floor
     createFloor(this.scene, shadow);
 
     // create a cube and a torus knot
-    const cube = createCube(this.scene, shadow, this.gui.addFolder('Cube'));
-    const torusKnot = createTorusKnot(this.scene, shadow, this.gui.addFolder('Torus knot'));
+    const cube = createCube(this.scene, shadow, cubeGUI);
+    const torusKnot = createTorusKnot(this.scene, shadow, torusKnotGUI);
 
     // create the lights
-    createLights(this.scene, shadow, this.gui.addFolder('Lights'));
+    createLights(this.scene, shadow, lightsGUI);
 
     // resizer
     resizer(document.body, this.renderer, this.camera);
