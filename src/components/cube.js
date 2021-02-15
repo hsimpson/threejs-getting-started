@@ -6,13 +6,15 @@ import {
   MathUtils,
 } from 'https://unpkg.com/three/build/three.module.js';
 
+import { getGUI } from '../systems/gui.js';
+
 const materialSettings = {
   color: '#007818',
   metalness: 0.0,
   roughness: 0.1,
 };
 
-export function createCube(scene, shadow, gui) {
+export function createCube(scene, shadow) {
   const geometry = new BoxGeometry(1, 1, 1);
   // const cubeMaterial = new MeshBasicMaterial({ color: props.color });
   const material = new MeshStandardMaterial(materialSettings);
@@ -40,12 +42,14 @@ export function createCube(scene, shadow, gui) {
   // add to the scene
   scene.add(mesh);
 
+  const gui = getGUI();
   if (gui) {
-    gui.addColor(materialSettings, 'color').onChange((color) => {
+    const cubeGui = gui.addFolder('Cube');
+    cubeGui.addColor(materialSettings, 'color').onChange((color) => {
       material.color.set(color);
     });
-    gui.add(material, 'metalness', 0, 1);
-    gui.add(material, 'roughness', 0, 1);
+    cubeGui.add(material, 'metalness', 0, 1);
+    cubeGui.add(material, 'roughness', 0, 1);
   }
 
   return mesh;

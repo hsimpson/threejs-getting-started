@@ -6,13 +6,15 @@ import {
   MathUtils,
 } from 'https://unpkg.com/three/build/three.module.js';
 
+import { getGUI } from '../systems/gui.js';
+
 const materialSettings = {
   color: '#0134e6',
   metalness: 0.0,
   roughness: 0.1,
 };
 
-export function createTorusKnot(scene, shadow, gui) {
+export function createTorusKnot(scene, shadow) {
   const geometry = new TorusKnotGeometry(0.5, 0.2, 128, 32);
   // const material = new MeshBasicMaterial({ color: props.color });
   const material = new MeshStandardMaterial(materialSettings);
@@ -40,12 +42,14 @@ export function createTorusKnot(scene, shadow, gui) {
   // add to the scene
   scene.add(mesh);
 
+  const gui = getGUI();
   if (gui) {
-    gui.addColor(materialSettings, 'color').onChange((color) => {
+    const torusKnotGui = gui.addFolder('Torus Knot');
+    torusKnotGui.addColor(materialSettings, 'color').onChange((color) => {
       material.color.set(color);
     });
-    gui.add(material, 'metalness', 0, 1);
-    gui.add(material, 'roughness', 0, 1);
+    torusKnotGui.add(material, 'metalness', 0, 1);
+    torusKnotGui.add(material, 'roughness', 0, 1);
   }
 
   return mesh;
