@@ -23,6 +23,8 @@ export class RenderEngine {
     // create gui
     createGUI();
 
+    this.shadow = shadow;
+
     // the main scene
     this.scene = createScene();
 
@@ -30,35 +32,31 @@ export class RenderEngine {
     this.camera = createCamera();
 
     // create the renderer
-    this.renderer = createRenderer(shadow);
+    this.renderer = createRenderer(this.shadow);
 
     // add the renderer dom element (canvas) to the body
     document.body.appendChild(this.renderer.domElement);
 
-    // create a floor
-    createFloor(this.scene, shadow);
-
-    // create a cube and a torus knot
-    const cube = createCube(this.scene, shadow);
-    const torusKnot = createTorusKnot(this.scene, shadow);
-
     // create the lights
-    createLights(this.scene, shadow);
+    createLights(this.scene, this.shadow);
 
     // animation loop
     this.loop = new Loop(this.renderer, this.scene, this.camera);
 
     // controls
     const controls = createControls(this.camera, this.renderer.domElement);
-
-    // adding objects to the update
-    this.loop.updatables.push(cube, torusKnot);
     this.loop.updatables.push(controls);
 
     createEnvironment(this.renderer, this.scene);
 
+    // create a floor
+    createFloor(this.scene, this.shadow);
+
+    // create some primitives
+    // this.createPrimitives();
+
     // load objects
-    // this.loadObjects();
+    this.loadObjects();
   }
 
   render() {
@@ -68,6 +66,14 @@ export class RenderEngine {
   start() {
     // this.render();
     this.loop.start();
+  }
+
+  createPrimitives() {
+    // create a cube and a torus knot
+    const cube = createCube(this.scene, this.shadow);
+    const torusKnot = createTorusKnot(this.scene, this.shadow);
+    // adding objects to the update
+    this.loop.updatables.push(cube, torusKnot);
   }
 
   loadObjects() {
