@@ -3,6 +3,8 @@ import { resizer } from './resizer.js';
 
 import Stats from 'https://unpkg.com/three/examples/jsm/libs/stats.module.js';
 
+import { createPostProcessing } from './postprocessing.js';
+
 export class Loop {
   constructor(renderer, scene, camera) {
     this.renderer = renderer;
@@ -12,12 +14,17 @@ export class Loop {
     this.clock = new Clock();
     this.stats = new Stats();
     document.body.appendChild(this.stats.dom);
+
+    this.composer = createPostProcessing(this.renderer, this.scene, this.camera);
   }
 
   start() {
     // resizer
     resizer(document.body, (width, height) => {
       this.renderer.setSize(width, height);
+      if (this.composer) {
+        this.composer.setSize(width, height);
+      }
       this.camera.aspect = width / height;
       this.camera.updateProjectionMatrix();
     });
@@ -27,7 +34,11 @@ export class Loop {
       this.stats.begin();
       this.animate();
       // render frame
-      this.renderer.render(this.scene, this.camera);
+      if (this.composer) {
+        this.composer.render();
+      } else {
+        this.renderer.render(this.scene, this.camera);
+      }
       this.stats.end();
     });
   }
