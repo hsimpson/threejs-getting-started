@@ -6,7 +6,6 @@ import { createFloor } from './components/floor.js';
 import { createCube } from './components/cube.js';
 import { createTorusKnot } from './components/torusknot.js';
 
-import { resizer } from './systems/resizer.js';
 import { Loop } from './systems/loop.js';
 import { createControls } from './systems/controls.js';
 
@@ -46,9 +45,6 @@ export class RenderEngine {
     // create the lights
     createLights(this.scene, shadow);
 
-    // resizer
-    resizer(document.body, this.renderer, this.camera);
-
     // animation loop
     this.loop = new Loop(this.renderer, this.scene, this.camera);
 
@@ -56,7 +52,7 @@ export class RenderEngine {
     const controls = createControls(this.camera, this.renderer.domElement);
 
     // adding objects to the update
-    // this.loop.updatables.push(cube, torusKnot);
+    this.loop.updatables.push(cube, torusKnot);
     this.loop.updatables.push(controls);
 
     createEnvironment(this.renderer, this.scene);

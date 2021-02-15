@@ -1,4 +1,6 @@
 import { Clock } from 'https://unpkg.com/three/build/three.module.js';
+import { resizer } from './resizer.js';
+
 import Stats from 'https://unpkg.com/three/examples/jsm/libs/stats.module.js';
 
 export class Loop {
@@ -13,6 +15,13 @@ export class Loop {
   }
 
   start() {
+    // resizer
+    resizer(document.body, (width, height) => {
+      this.renderer.setSize(width, height);
+      this.camera.aspect = width / height;
+      this.camera.updateProjectionMatrix();
+    });
+
     this.stats.showPanel(1);
     this.renderer.setAnimationLoop(() => {
       this.stats.begin();
