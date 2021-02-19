@@ -3,6 +3,7 @@ import { createRenderer } from './systems/renderer.js';
 import { createCamera } from './components/camera.js';
 
 import { createFloor } from './components/floor.js';
+import { createSphere } from './components/sphere.js';
 import { createCube } from './components/cube.js';
 import { createTorusKnot } from './components/torusknot.js';
 
@@ -53,10 +54,10 @@ export class RenderEngine {
     createFloor(this.scene, this.shadow);
 
     // create some primitives
-    // this.createPrimitives();
+    this.createPrimitives();
 
     // load objects
-    this.loadObjects();
+    // this.loadObjects();
   }
 
   render() {
@@ -71,9 +72,11 @@ export class RenderEngine {
   createPrimitives() {
     // create a cube and a torus knot
     const cube = createCube(this.scene, this.shadow);
+    const sphere = createSphere(this.scene, this.shadow);
     const torusKnot = createTorusKnot(this.scene, this.shadow);
+
     // adding objects to the update
-    this.loop.updatables.push(cube, torusKnot);
+    this.loop.updatables.push(cube, sphere, torusKnot);
   }
 
   loadObjects() {

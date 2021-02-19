@@ -19,15 +19,15 @@ const materialSettings = {
 
 export function createCube(scene, shadow) {
   const geometry = new BoxGeometry(1, 1, 1);
-  // const material = new MeshBasicMaterial({ color: props.color });
-  // const material = new MeshStandardMaterial(materialSettings);
+  // const material = new MeshBasicMaterial({ color: materialSettings.color });
+  const material = new MeshStandardMaterial(materialSettings);
 
   // const material = createMaterial();
-  const material = createMaterial({
-    even: '#cccccc',
-    odd: '#333333',
-    scale: 2,
-  });
+  // const material = createMaterial({
+  //   even: '#cccccc',
+  //   odd: '#333333',
+  //   scale: 2,
+  // });
 
   // create a cube mesh and use geometry and material
   const mesh = new Mesh(geometry, material);
@@ -52,15 +52,15 @@ export function createCube(scene, shadow) {
   // add to the scene
   scene.add(mesh);
 
-  // const gui = getGUI();
-  // if (gui) {
-  //   const cubeGui = gui.addFolder('Cube');
-  //   cubeGui.addColor(materialSettings, 'color').onChange((color) => {
-  //     material.color.set(color);
-  //   });
-  //   cubeGui.add(material, 'metalness', 0, 1);
-  //   cubeGui.add(material, 'roughness', 0, 1);
-  // }
+  const gui = getGUI();
+  if (gui) {
+    const cubeGui = gui.addFolder('Cube');
+    cubeGui.addColor(materialSettings, 'color').onChange((color) => {
+      material.color.set(color);
+    });
+    cubeGui.add(material, 'metalness', 0, 1);
+    cubeGui.add(material, 'roughness', 0, 1);
+  }
 
   return mesh;
 }

@@ -16,7 +16,7 @@ const materialSettings = {
 
 export function createTorusKnot(scene, shadow) {
   const geometry = new TorusKnotGeometry(0.5, 0.2, 128, 32);
-  // const material = new MeshBasicMaterial({ color: props.color });
+  // const material = new MeshBasicMaterial({ color: materialSettings.color });
   const material = new MeshStandardMaterial(materialSettings);
 
   // create a cube mesh and use geometry and material
@@ -31,7 +31,7 @@ export function createTorusKnot(scene, shadow) {
   mesh.position.x = 1;
   mesh.position.y = 1;
 
-  // 30° per second
+  // 60° per second
   const radiansPerSecond = MathUtils.degToRad(60);
   mesh.onUpdate = (delta) => {
     mesh.rotation.x -= radiansPerSecond * delta;
