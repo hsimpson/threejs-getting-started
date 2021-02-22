@@ -4,10 +4,8 @@ export function createControls(camera, domElement) {
   const controls = new OrbitControls(camera, domElement);
   controls.enableDamping = true;
 
-  controls.onUpdate = () => {
+  return () => {
     // update the controls
     controls.update();
   };
-
-  return controls;
 }

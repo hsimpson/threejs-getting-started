@@ -45,8 +45,8 @@ export class RenderEngine {
     this.loop = new Loop(this.renderer, this.scene, this.camera);
 
     // controls
-    const controls = createControls(this.camera, this.renderer.domElement);
-    this.loop.updatables.push(controls);
+    const controlsUpdateFunc = createControls(this.camera, this.renderer.domElement);
+    this.loop.updatables.push(controlsUpdateFunc);
 
     createEnvironment(this.renderer, this.scene);
 
@@ -71,12 +71,12 @@ export class RenderEngine {
 
   createPrimitives() {
     // create a cube and a torus knot
-    const cube = createCube(this.scene, this.shadow);
-    const sphere = createSphere(this.scene, this.shadow);
-    const torusKnot = createTorusKnot(this.scene, this.shadow);
+    const cubeUpdateFunc = createCube(this.scene, this.shadow);
+    createSphere(this.scene, this.shadow);
+    const torusKnotUpdateFunc = createTorusKnot(this.scene, this.shadow);
 
-    // adding objects to the update
-    this.loop.updatables.push(cube, sphere, torusKnot);
+    // adding update functions to the updateables array of loop
+    this.loop.updatables.push(cubeUpdateFunc, torusKnotUpdateFunc);
   }
 
   loadObjects() {

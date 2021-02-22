@@ -31,14 +31,6 @@ export function createTorusKnot(scene, shadow) {
   mesh.position.x = 1;
   mesh.position.y = 1;
 
-  // 60° per second
-  const radiansPerSecond = MathUtils.degToRad(60);
-  mesh.onUpdate = (delta) => {
-    mesh.rotation.x -= radiansPerSecond * delta;
-    mesh.rotation.y -= radiansPerSecond * delta;
-    mesh.rotation.z -= radiansPerSecond * delta;
-  };
-
   // add to the scene
   scene.add(mesh);
 
@@ -52,5 +44,11 @@ export function createTorusKnot(scene, shadow) {
     torusKnotGui.add(material, 'roughness', 0, 1);
   }
 
-  return mesh;
+  // 60° per second
+  const radiansPerSecond = MathUtils.degToRad(60);
+  return (delta) => {
+    mesh.rotation.x -= radiansPerSecond * delta;
+    mesh.rotation.y -= radiansPerSecond * delta;
+    mesh.rotation.z -= radiansPerSecond * delta;
+  };
 }

@@ -41,14 +41,6 @@ export function createCube(scene, shadow) {
   mesh.position.x = -1;
   mesh.position.y = 1;
 
-  // 30° per second
-  const radiansPerSecond = MathUtils.degToRad(30);
-  mesh.onUpdate = (delta) => {
-    mesh.rotation.x += radiansPerSecond * delta;
-    mesh.rotation.y += radiansPerSecond * delta;
-    mesh.rotation.z += radiansPerSecond * delta;
-  };
-
   // add to the scene
   scene.add(mesh);
 
@@ -62,5 +54,11 @@ export function createCube(scene, shadow) {
     cubeGui.add(material, 'roughness', 0, 1);
   }
 
-  return mesh;
+  // 30° per second
+  const radiansPerSecond = MathUtils.degToRad(30);
+  return (delta) => {
+    mesh.rotation.x += radiansPerSecond * delta;
+    mesh.rotation.y += radiansPerSecond * delta;
+    mesh.rotation.z += radiansPerSecond * delta;
+  };
 }

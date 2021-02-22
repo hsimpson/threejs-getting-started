@@ -48,6 +48,4 @@ export function createSphere(scene, shadow) {
     sphereGui.add(material, 'metalness', 0, 1);
     sphereGui.add(material, 'roughness', 0, 1);
   }
-
-  return mesh;
 }

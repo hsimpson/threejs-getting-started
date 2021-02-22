@@ -52,10 +52,8 @@ export class Loop {
     const delta = this.clock.getDelta();
 
     // call onUpdate on every object
-    for (const object of this.updatables) {
-      if (object.onUpdate) {
-        object.onUpdate(delta);
-      }
+    for (const updateFunc of this.updatables) {
+      updateFunc(delta);
     }
   }
 }
