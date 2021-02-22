@@ -1,4 +1,4 @@
-import { GUI } from 'https://unpkg.com/three/examples/jsm/libs/dat.gui.module.js';
+import { GUI } from '/node_modules/three/examples/jsm/libs/dat.gui.module.js';
 
 let gui;
 

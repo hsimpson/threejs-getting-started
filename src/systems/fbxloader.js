@@ -1,5 +1,5 @@
-import { FBXLoader } from 'https://unpkg.com/three/examples/jsm/loaders/FBXLoader.js';
-import { AnimationMixer } from 'https://unpkg.com/three/build/three.module.js';
+import { FBXLoader } from '/node_modules/three/examples/jsm/loaders/FBXLoader.js';
+import { AnimationMixer } from '/node_modules/three/build/three.module.js';
 
 export function loadFBX(url, scene, loop, scale) {
   const loader = new FBXLoader();

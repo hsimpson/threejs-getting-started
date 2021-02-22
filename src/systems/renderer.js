@@ -3,7 +3,7 @@ import {
   PCFSoftShadowMap,
   sRGBEncoding,
   ReinhardToneMapping,
-} from 'https://unpkg.com/three/build/three.module.js';
+} from '/node_modules/three/build/three.module.js';
 
 import { getGUI } from './gui.js';
 

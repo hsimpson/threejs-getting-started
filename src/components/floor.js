@@ -5,7 +5,7 @@ import {
   MeshPhongMaterial,
   Mesh,
   MathUtils,
-} from 'https://unpkg.com/three/build/three.module.js';
+} from '/node_modules/three/build/three.module.js';
 
 import { createMaterial } from '../assets/materials/MetalPlates007/material.js';
 
