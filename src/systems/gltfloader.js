@@ -22,10 +22,9 @@ export function loadGLTF(url, scene, loop, scale) {
       const action = mixer.clipAction(gltf.animations[1]);
       action.play();
 
-      mixer.onUpdate = (delta) => {
+      loop.updatables.push((delta) => {
         mixer.update(delta);
-      };
-      loop.updatables.push(mixer);
+      });
     }
 
     scene.add(gltf.scene);

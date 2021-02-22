@@ -22,10 +22,9 @@ export function loadFBX(url, scene, loop, scale) {
       const action = mixer.clipAction(fbx.animations[0]);
       action.play();
 
-      mixer.onUpdate = (delta) => {
+      loop.updatables.push((delta) => {
         mixer.update(delta);
-      };
-      loop.updatables.push(mixer);
+      });
     }
     scene.add(fbx);
   });
