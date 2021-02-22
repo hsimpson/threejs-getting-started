@@ -7,7 +7,7 @@ import {
   MathUtils,
 } from '/node_modules/three/build/three.module.js';
 
-import { createMaterial } from '../assets/materials/MetalPlates007/material.js';
+import { createMaterial } from '../assets/materials/Tiles037/material.js';
 
 export function createFloor(scene, shadow) {
   const floorGeometry = new PlaneGeometry(8, 8);

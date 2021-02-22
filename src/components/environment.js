@@ -21,6 +21,7 @@ export function createEnvironment(renderer, scene) {
     .load(filename, function (hdrEquirect) {
       const hdrCubeRenderTarget = pmremGenerator.fromEquirectangular(hdrEquirect);
       hdrEquirect.dispose();
+      pmremGenerator.dispose();
 
       scene.environment = hdrCubeRenderTarget.texture;
     });

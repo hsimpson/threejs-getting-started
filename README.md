@@ -8,4 +8,4 @@ Credits:
 - Roboter model is under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) created by [ManaSoup Interactive](https://www.twitch.com/manasoup_dev)
 - Textures are under [CC0](https://creativecommons.org/publicdomain/zero/1.0/) from [CC0Textures](https://cc0textures.com/)
   - [Marble006](https://cc0textures.com/view?id=Marble006)
-  - [MetalPlates007](https://cc0textures.com/view?id=MetalPlates007)
+  - [Tiles037](https://cc0textures.com/view?id=Tiles037)
