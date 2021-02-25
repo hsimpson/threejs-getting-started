@@ -1,7 +1,7 @@
-import { Clock } from '/node_modules/three/build/three.module.js';
+import { Clock } from '../three/build/three.module.js';
 import { resizer } from './resizer.js';
 
-import Stats from '/node_modules/three/examples/jsm/libs/stats.module.js';
+import Stats from '../three/examples/jsm/libs/stats.module.js';
 
 import { createPostProcessing } from './postprocessing.js';
 

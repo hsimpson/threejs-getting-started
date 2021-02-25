@@ -4,7 +4,7 @@ import {
   sRGBEncoding,
   Vector2,
   RepeatWrapping,
-} from '/node_modules/three/build/three.module.js';
+} from '../../../three/build/three.module.js';
 
 export function createMaterial() {
   const loader = new TextureLoader().setPath('assets/materials/Tiles037/');

@@ -1,9 +1,4 @@
-import {
-  WebGLRenderer,
-  PCFSoftShadowMap,
-  sRGBEncoding,
-  ReinhardToneMapping,
-} from '/node_modules/three/build/three.module.js';
+import { WebGLRenderer, PCFSoftShadowMap, sRGBEncoding, ReinhardToneMapping } from '../three/build/three.module.js';
 
 import { getGUI } from './gui.js';
 

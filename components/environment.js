@@ -4,8 +4,8 @@ import {
   TextureLoader,
   EquirectangularReflectionMapping,
   sRGBEncoding,
-} from '/node_modules/three/build/three.module.js';
-import { RGBELoader } from '/node_modules/three/examples/jsm/loaders/RGBELoader.js';
+} from '../three/build/three.module.js';
+import { RGBELoader } from '../three/examples/jsm/loaders/RGBELoader.js';
 
 export function createEnvironment(renderer, scene) {
   const filename = 'old_depot_2k.hdr';

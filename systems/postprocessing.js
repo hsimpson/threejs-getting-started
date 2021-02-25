@@ -1,10 +1,10 @@
-import { EffectComposer } from '/node_modules/three/examples/jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '/node_modules/three/examples/jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from '/node_modules/three/examples/jsm/postprocessing/ShaderPass.js';
-import { GammaCorrectionShader } from '/node_modules/three/examples/jsm/shaders/GammaCorrectionShader.js';
-import { SepiaShader } from '/node_modules/three/examples/jsm/shaders/SepiaShader.js';
-import { VignetteShader } from '/node_modules/three/examples/jsm/shaders/VignetteShader.js';
-import { SMAAPass } from '/node_modules/three/examples/jsm/postprocessing/SMAAPass.js';
+import { EffectComposer } from '../three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from '../three/examples/jsm/postprocessing/RenderPass.js';
+import { ShaderPass } from '../three/examples/jsm/postprocessing/ShaderPass.js';
+import { GammaCorrectionShader } from '../three/examples/jsm/shaders/GammaCorrectionShader.js';
+import { SepiaShader } from '../three/examples/jsm/shaders/SepiaShader.js';
+import { VignetteShader } from '../three/examples/jsm/shaders/VignetteShader.js';
+import { SMAAPass } from '../three/examples/jsm/postprocessing/SMAAPass.js';
 
 import { getGUI } from './gui.js';
 

@@ -1,4 +1,4 @@
-import { ShaderMaterial, Color } from '/node_modules/three/build/three.module.js';
+import { ShaderMaterial, Color } from '../../three/build/three.module.js';
 import { vertexShader, fragmentShader } from '../shaders/basicshader.js';
 
 export function createMaterial(settings) {

@@ -5,7 +5,7 @@ import {
   MeshPhongMaterial,
   Mesh,
   MathUtils,
-} from '/node_modules/three/build/three.module.js';
+} from '../three/build/three.module.js';
 
 import { createMaterial } from '../assets/materials/Tiles037/material.js';
 

@@ -1,4 +1,4 @@
-import { MeshStandardMaterial, TextureLoader, sRGBEncoding } from '/node_modules/three/build/three.module.js';
+import { MeshStandardMaterial, TextureLoader, sRGBEncoding } from '../../../three/build/three.module.js';
 
 export function createMaterial() {
   const loader = new TextureLoader().setPath('assets/materials/Marble006/');

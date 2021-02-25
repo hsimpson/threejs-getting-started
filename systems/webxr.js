@@ -1,7 +1,7 @@
-import { VRButton } from '/node_modules/three/examples/jsm/webxr/VRButton.js';
-import { XRControllerModelFactory } from '/node_modules/three/examples/jsm/webxr/XRControllerModelFactory.js';
-import { XRHandModelFactory } from '/node_modules/three/examples/jsm/webxr/XRHandModelFactory.js';
-import { BufferGeometry, Vector3, Line, Matrix4, Raycaster } from '/node_modules/three/build/three.module.js';
+import { VRButton } from '../three/examples/jsm/webxr/VRButton.js';
+import { XRControllerModelFactory } from '../three/examples/jsm/webxr/XRControllerModelFactory.js';
+import { XRHandModelFactory } from '../three/examples/jsm/webxr/XRHandModelFactory.js';
+import { BufferGeometry, Vector3, Line, Matrix4, Raycaster } from '../three/build/three.module.js';
 
 export function createXR(renderer, scene) {
   renderer.xr.enabled = true;
