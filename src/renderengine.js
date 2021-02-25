@@ -63,6 +63,8 @@ export class RenderEngine {
 
     // enable for WebXR (VR)
     const xrUpdateFunc = createXR(this.renderer, this.scene);
+    this.scene.position.y = -1.7;
+    this.scene.position.z = -7;
     this.loop.updatables.push(xrUpdateFunc);
   }
 
@@ -86,7 +88,9 @@ export class RenderEngine {
   }
 
   loadObjects() {
-    loadGLTF('assets/models/WaterBottle/WaterBottle.gltf', this.scene, null, 15);
+    // loadGLTF('assets/models/WaterBottle/WaterBottle.gltf', this.scene, null, 15);
+    // loadFBX('assets/models/Couch-Getrankehalter_v6.fbx', this.scene, null, 0.01);
     // loadGLTF('assets/models/Roboter/Roboter_3.gltf', this.scene, this.loop);
+    loadGLTF('assets/models/Roboter/Roboter_16_tex.gltf', this.scene, this.loop);
   }
 }
