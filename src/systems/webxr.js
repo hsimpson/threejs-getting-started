@@ -10,9 +10,13 @@ export function createXR(renderer, scene) {
   // controllers
 
   const controller1 = renderer.xr.getController(0);
+  controller1.addEventListener('selectstart', onSelectStart);
+  controller1.addEventListener('selectend', onSelectEnd);
   scene.add(controller1);
 
   const controller2 = renderer.xr.getController(1);
+  controller2.addEventListener('selectstart', onSelectStart);
+  controller2.addEventListener('selectend', onSelectEnd);
   scene.add(controller2);
 
   const controllerModelFactory = new XRControllerModelFactory();
@@ -87,6 +91,34 @@ export function createXR(renderer, scene) {
       line.scale.z = 5;
     }
   };
+
+  function onSelectStart(event) {
+    const controller = event.target;
+
+    const intersections = getIntersections(controller);
+
+    if (intersections.length > 0) {
+      const intersection = intersections[0];
+
+      const object = intersection.object;
+      object.material.emissive.b = 1;
+      controller.attach(object);
+
+      controller.userData.selected = object;
+    }
+  }
+
+  function onSelectEnd(event) {
+    const controller = event.target;
+
+    if (controller.userData.selected !== undefined) {
+      const object = controller.userData.selected;
+      object.material.emissive.b = 0;
+      scene.attach(object);
+
+      controller.userData.selected = undefined;
+    }
+  }
 
   return () => {
     cleanIntersected();
