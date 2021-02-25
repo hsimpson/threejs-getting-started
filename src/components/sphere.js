@@ -4,7 +4,7 @@ import {
   MeshStandardMaterial,
   Mesh,
   MathUtils,
-} from '/node_modules/three/build/three.module.js';
+} from '../three/build/three.module.js';
 
 import { getGUI } from '../systems/gui.js';
 

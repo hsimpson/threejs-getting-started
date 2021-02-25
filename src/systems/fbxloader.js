@@ -1,5 +1,5 @@
-import { FBXLoader } from '/node_modules/three/examples/jsm/loaders/FBXLoader.js';
-import { AnimationMixer, MeshStandardMaterial } from '/node_modules/three/build/three.module.js';
+import { FBXLoader } from '../three/examples/jsm/loaders/FBXLoader.js';
+import { AnimationMixer, MeshStandardMaterial } from '../three/build/three.module.js';
 
 import { createMaterial } from '../assets/materials/3DPrinting/material.js';
 
