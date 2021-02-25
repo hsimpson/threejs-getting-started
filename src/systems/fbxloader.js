@@ -1,5 +1,7 @@
 import { FBXLoader } from '/node_modules/three/examples/jsm/loaders/FBXLoader.js';
-import { AnimationMixer } from '/node_modules/three/build/three.module.js';
+import { AnimationMixer, MeshStandardMaterial } from '/node_modules/three/build/three.module.js';
+
+import { createMaterial } from '../assets/materials/3DPrinting/material.js';
 
 export function loadFBX(url, scene, loop, scale) {
   const loader = new FBXLoader();
@@ -8,11 +10,15 @@ export function loadFBX(url, scene, loop, scale) {
       fbx.scale.multiplyScalar(scale);
     }
 
+    // const material = new MeshStandardMaterial();
+    const material = createMaterial();
+
     // turn on shadows
     fbx.traverse(function (child) {
       if (child.isMesh) {
         child.castShadow = true;
         child.receiveShadow = true;
+        child.material = material;
       }
     });
 
