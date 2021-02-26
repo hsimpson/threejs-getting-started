@@ -1,8 +1,11 @@
 import { GLTFLoader } from '../three/examples/jsm/loaders/GLTFLoader.js';
-import { AnimationMixer } from '../three/build/three.module.js';
+import { AnimationMixer, TextureLoader } from '../three/build/three.module.js';
 
 export function loadGLTF(url, scene, loop, scale) {
   const loader = new GLTFLoader();
+
+  const texLoader = new TextureLoader().setPath('assets/models/Roboter/');
+
   loader.load(url, (gltf) => {
     if (scale) {
       gltf.scene.scale.multiplyScalar(scale);
@@ -13,6 +16,10 @@ export function loadGLTF(url, scene, loop, scale) {
       if (child.isMesh) {
         child.castShadow = true;
         child.receiveShadow = true;
+        // child.material = material;
+        child.material.normalMap = undefined;
+        child.material.bumpMap = texLoader.load('bump.png');
+        child.material.bumpScale = 0.571429;
       }
     });
 
