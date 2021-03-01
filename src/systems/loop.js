@@ -15,7 +15,7 @@ export class Loop {
     this.stats = new Stats();
     document.body.appendChild(this.stats.dom);
 
-    this.composer = createPostProcessing(this.renderer, this.scene, this.camera);
+    // this.composer = createPostProcessing(this.renderer, this.scene, this.camera);
   }
 
   start() {
