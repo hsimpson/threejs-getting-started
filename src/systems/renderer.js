@@ -1,4 +1,4 @@
-import { WebGLRenderer, PCFSoftShadowMap, sRGBEncoding, ReinhardToneMapping } from '../three/build/three.module.js';
+import { WebGLRenderer, PCFSoftShadowMap, sRGBEncoding, ReinhardToneMapping } from 'three';
 
 import { getGUI } from './gui.js';
 
@@ -10,7 +10,7 @@ export function createRenderer(shadow) {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.outputEncoding = sRGBEncoding;
   renderer.toneMapping = ReinhardToneMapping;
-  renderer.toneMappingExposure = 0.5;
+  renderer.toneMappingExposure = 1.0;
 
   if (shadow) {
     renderer.shadowMap.enabled = true;

@@ -1,9 +1,9 @@
-import { BoxGeometry, MeshBasicMaterial, MeshStandardMaterial, Mesh, MathUtils } from '../three/build/three.module.js';
+import { BoxGeometry, MeshBasicMaterial, MeshStandardMaterial, Mesh, MathUtils } from 'three';
 
 import { getGUI } from '../systems/gui.js';
 
-// import { createMaterial } from '../assets/materials/basicmaterial.js';
-import { createMaterial } from '../assets/materials/checkerboardmaterial.js';
+// import { createMaterial } from '../materials/basicmaterial.js';
+import { createMaterial } from '../materials/checkerboardmaterial.js';
 
 const materialSettings = {
   color: '#007818',

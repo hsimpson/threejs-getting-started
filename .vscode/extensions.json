@@ -1,3 +1,7 @@
 {
-  "recommendations": ["cadenas.vscode-glsllint", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "dtoplak.vscode-glsllint",
+    "esbenp.prettier-vscode"
+  ]
 }

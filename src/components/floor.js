@@ -1,13 +1,6 @@
-import {
-  PlaneGeometry,
-  MeshBasicMaterial,
-  MeshStandardMaterial,
-  MeshPhongMaterial,
-  Mesh,
-  MathUtils,
-} from '../three/build/three.module.js';
+import { PlaneGeometry, MeshBasicMaterial, MeshStandardMaterial, MeshPhongMaterial, Mesh, MathUtils } from 'three';
 
-import { createMaterial } from '../assets/materials/Tiles037/material.js';
+import { createMaterial } from '../materials/Tiles037/material.js';
 
 export function createFloor(scene, shadow) {
   const floorGeometry = new PlaneGeometry(8, 8);

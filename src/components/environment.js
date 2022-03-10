@@ -1,11 +1,5 @@
-import {
-  UnsignedByteType,
-  PMREMGenerator,
-  TextureLoader,
-  EquirectangularReflectionMapping,
-  sRGBEncoding,
-} from '../three/build/three.module.js';
-import { RGBELoader } from '../three/examples/jsm/loaders/RGBELoader.js';
+import { UnsignedByteType, PMREMGenerator, TextureLoader, EquirectangularReflectionMapping, sRGBEncoding } from 'three';
+import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 
 export function createEnvironment(renderer, scene) {
   const filename = 'old_depot_2k.hdr';
@@ -16,9 +10,9 @@ export function createEnvironment(renderer, scene) {
   pmremGenerator.compileEquirectangularShader();
 
   new RGBELoader()
-    .setDataType(UnsignedByteType)
+    // .setDataType(UnsignedByteType)
     .setPath(path)
-    .load(filename, function (hdrEquirect) {
+    .load(filename, (hdrEquirect) => {
       const hdrCubeRenderTarget = pmremGenerator.fromEquirectangular(hdrEquirect);
       hdrEquirect.dispose();
       pmremGenerator.dispose();

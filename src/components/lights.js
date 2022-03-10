@@ -1,4 +1,4 @@
-import { AmbientLight, DirectionalLight } from '../three/build/three.module.js';
+import { AmbientLight, DirectionalLight } from 'three';
 
 import { getGUI } from '../systems/gui.js';
 

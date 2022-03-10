@@ -1,14 +1,6 @@
-import {
-  SphereGeometry,
-  MeshBasicMaterial,
-  MeshStandardMaterial,
-  Mesh,
-  MathUtils,
-} from '../three/build/three.module.js';
-
+import { Mesh, SphereGeometry } from 'three';
+import { createMaterial } from '../materials/Marble006/material.js';
 import { getGUI } from '../systems/gui.js';
-
-import { createMaterial } from '../assets/materials/Marble006/material.js';
 
 const materialSettings = {
   color: '#cf0e7a',

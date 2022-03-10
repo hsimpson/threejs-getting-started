@@ -1,10 +1,4 @@
-import {
-  TorusKnotGeometry,
-  MeshBasicMaterial,
-  MeshStandardMaterial,
-  Mesh,
-  MathUtils,
-} from '../three/build/three.module.js';
+import { TorusKnotGeometry, MeshBasicMaterial, MeshStandardMaterial, Mesh, MathUtils } from 'three';
 
 import { getGUI } from '../systems/gui.js';
 

@@ -1,9 +1,9 @@
-import { GUI } from '../three/examples/jsm/libs/dat.gui.module.js';
+import * as dat from 'dat.gui';
 
 let gui;
 
 export function createGUI() {
-  gui = new GUI();
+  gui = new dat.GUI();
 }
 
 export function getGUI() {

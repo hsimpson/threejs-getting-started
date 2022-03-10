@@ -1,4 +1,4 @@
-import { PerspectiveCamera } from '../three/build/three.module.js';
+import { PerspectiveCamera } from 'three';
 
 export function createCamera() {
   // create a perspective camera with 45° vertical fov

@@ -1,5 +1,5 @@
-import { GLTFLoader } from '../three/examples/jsm/loaders/GLTFLoader.js';
-import { AnimationMixer, TextureLoader } from '../three/build/three.module.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { AnimationMixer, TextureLoader } from 'three';
 
 export function loadGLTF(url, scene, loop, scale) {
   const loader = new GLTFLoader();
@@ -17,9 +17,9 @@ export function loadGLTF(url, scene, loop, scale) {
         child.castShadow = true;
         child.receiveShadow = true;
         // child.material = material;
-        child.material.normalMap = undefined;
-        child.material.bumpMap = texLoader.load('bump.png');
-        child.material.bumpScale = 0.571429;
+        // child.material.normalMap = undefined;
+        // child.material.bumpMap = texLoader.load('bump.png');
+        // child.material.bumpScale = 0.571429;
       }
     });
 

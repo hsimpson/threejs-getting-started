@@ -1,7 +1,7 @@
-import { FBXLoader } from '../three/examples/jsm/loaders/FBXLoader.js';
-import { AnimationMixer, MeshStandardMaterial } from '../three/build/three.module.js';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
+import { AnimationMixer, MeshStandardMaterial } from 'three';
 
-import { createMaterial } from '../assets/materials/3DPrinting/material.js';
+import { createMaterial } from '../materials/3DPrinting/material.js';
 
 export function loadFBX(url, scene, loop, scale) {
   const loader = new FBXLoader();
