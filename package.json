@@ -11,9 +11,9 @@
   "author": "Daniel Toplak",
   "license": "MIT",
   "devDependencies": {
-    "@types/three": "^0.137.0",
+    "@types/three": "^0.138.0",
     "eslint": "^8.10.0",
-    "eslint-config-prettier": "^8.4.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "gh-pages": "^3.2.3",
     "prettier": "^2.5.1",
@@ -21,6 +21,6 @@
   },
   "dependencies": {
     "dat.gui": "^0.7.9",
-    "three": "^0.138.2"
+    "three": "^0.138.3"
   }
 }
